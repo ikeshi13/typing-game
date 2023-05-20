@@ -70,10 +70,11 @@ async function RenderNextSentence() {
   //入力するテキストボックス内の文字列を削除する
   typeInput.value = "";
 
-  //
+  //制限時間を表示
   StartTimer();
 }
 
+//時間を1秒づつ減らし表示する処理
 let startTime;
 let originTime = 30;
 function StartTimer() {
@@ -85,10 +86,12 @@ function StartTimer() {
   }, 1000);
 }
 
+//1秒を取得する
 function getTimerTime() {
   return Math.floor((new Date() - startTime) / 1000);
 }
 
+///timerに表示されている時間が0以下の場合次に移る
 function TimeUp() {
   RenderNextSentence();
 }
